@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @Data
 public class Dependency {
+    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,4 +21,12 @@ public class Dependency {
 
     @ElementCollection
     private List<Long> dependentTaskIds;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }

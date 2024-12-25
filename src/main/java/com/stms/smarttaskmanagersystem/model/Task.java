@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Entity
 @Data
 public class Task {
+    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,4 +34,12 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "depends_on")
     private Task dependsOn;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
