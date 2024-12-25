@@ -1,7 +1,7 @@
 package com.stms.smarttaskmanagersystem.service;
 
 
-import com.stms.smarttaskmanagersystem.model.Task;
+import com.stms.smarttaskmanagersystem.model.TaskEntity;
 import com.stms.smarttaskmanagersystem.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,5 +23,9 @@ public class TaskService {
 
     public void deleteTask(Long id) {
         taskRepository.deleteById(Math.toIntExact(id));
+    }
+
+    public TaskEntity saveTask(TaskEntity task) {
+        return taskRepository.save(task);
     }
 }

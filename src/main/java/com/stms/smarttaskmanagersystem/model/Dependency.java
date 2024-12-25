@@ -2,13 +2,11 @@ package com.stms.smarttaskmanagersystem.model;
 
 
 import jakarta.persistence.*;
-import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
 @Entity
-@Data
 public class Dependency {
     @jakarta.persistence.Id
     @Id
@@ -17,7 +15,7 @@ public class Dependency {
 
     @OneToOne
     @JoinColumn(name = "task_id")
-    private Task task;
+    private TaskEntity task;
 
     @ElementCollection
     private List<Long> dependentTaskIds;
@@ -28,5 +26,21 @@ public class Dependency {
 
     public Long getId() {
         return id;
+    }
+
+    public TaskEntity getTask() {
+        return task;
+    }
+
+    public void setTask(TaskEntity task) {
+        this.task = task;
+    }
+
+    public List<Long> getDependentTaskIds() {
+        return dependentTaskIds;
+    }
+
+    public void setDependentTaskIds(List<Long> dependentTaskIds) {
+        this.dependentTaskIds = dependentTaskIds;
     }
 }

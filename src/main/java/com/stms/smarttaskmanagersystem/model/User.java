@@ -3,14 +3,14 @@ package com.stms.smarttaskmanagersystem.model;
 
 import jakarta.persistence.*;
 //import org.hibernate.annotations.CascadeType;
-import lombok.Data;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.scheduling.config.Task;
 
 import java.util.List;
 
 @Entity
-@Data
+
 public class User {
     @jakarta.persistence.Id
     @Id
@@ -28,5 +28,21 @@ public class User {
 
     public Long getId() {
         return id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }

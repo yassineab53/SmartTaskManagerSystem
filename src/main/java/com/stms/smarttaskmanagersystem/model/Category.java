@@ -2,13 +2,11 @@ package com.stms.smarttaskmanagersystem.model;
 
 
 import jakarta.persistence.*;
-import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
 @Entity
-@Data
 public class Category {
     @jakarta.persistence.Id
     @Id
@@ -18,7 +16,7 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private List<Task> taskList;
+    private List<TaskEntity> taskList;
 
     public void setId(Long id) {
         this.id = id;
@@ -26,5 +24,21 @@ public class Category {
 
     public Long getId() {
         return id;
+    }
+
+    public List<TaskEntity> getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(List<TaskEntity> taskList) {
+        this.taskList = taskList;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
